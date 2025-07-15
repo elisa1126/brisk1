@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brisk Teaching 활용 연수 | 교육 콘텐츠 시각화</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background-color: #f0f9ff; /* sky-50 */
+            color: #1e3a8a; /* 군청색에 가까운 indigo-900 */
+        }
+        /* <details> 태그의 기본 마커(화살표) 제거 */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        /* 열렸을 때 아이콘 변경 */
+        details[open] .plus-icon {
+            display: none;
+        }
+        details:not([open]) .minus-icon {
+            display: none;
+        }
+    </style>
+</head>
+<body x-data="{ mobileMenuOpen: false }">
+
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="flex items-center space-x-2">
+                        <i class="fa-solid fa-rocket text-2xl text-orange-500"></i>
+                        <span class="text-xl font-bold text-slate-800">Brisk Teaching 연수</span>
+                    </a>
+                </div>
+
+                <nav class="hidden md:flex md:space-x-4 lg:space-x-6">
+                    <a href="#intro" class="font-semibold text-slate-700 hover:text-teal-600 transition-colors">🤔 소개</a>
+                    <a href="#features" class="font-semibold text-slate-700 hover:text-teal-600 transition-colors">🛠️ 주요 기능</a>
+                    <a href="#benefits" class="font-semibold text-slate-700 hover:text-teal-600 transition-colors">🌟 핵심 이점</a>
+                    <a href="#usage" class="font-semibold text-slate-700 hover:text-teal-600 transition-colors">📝 활용 사례</a>
+                    <a href="#security" class="font-semibold text-slate-700 hover:text-teal-600 transition-colors">🔒 보안</a>
+                    <a href="#faq" class="font-semibold text-slate-700 hover:text-teal-600 transition-colors">❓ FAQ</a>
+                </nav>
+
+                <div class="md:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="inline-flex items-center justify-center p-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-teal-500">
+                        <span class="sr-only">메뉴 열기</span>
+                        <i class="fa-solid fa-bars text-2xl" x-show="!mobileMenuOpen"></i>
+                        <i class="fa-solid fa-xmark text-2xl" x-show="mobileMenuOpen"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden" x-transition>
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#intro" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50">🤔 소개</a>
+                <a href="#features" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50">🛠️ 주요 기능</a>
+                <a href="#benefits" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50">🌟 핵심 이점</a>
+                <a href="#usage" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50">📝 활용 사례</a>
+                <a href="#security" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50">🔒 보안</a>
+                <a href="#faq" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50">❓ FAQ</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+        
+        <section class="text-center my-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-800 leading-tight">
+                <span class="text-teal-500">스마트 AI 교수 보조 도구,</span><br>Brisk Teaching 활용법
+            </h1>
+            <p class="mt-4 text-lg text-slate-600">개인 정보 보호와 함께 효율적인 수업을 만드는 방법을 알아봅니다.</p>
+        </section>
+
+        <section id="intro" class="my-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-slate-800 border-b-4 border-teal-300 pb-3 mb-8">🤔 Brisk Teaching 이란?</h2>
+            <p class="text-lg leading-relaxed mb-6">Brisk Teaching은 교사의, 교사에 의한, 교사를 위한 강력한 AI 보조 도구입니다. 크롬(Chrome) 및 엣지(Edge) 브라우저 확장 프로그램으로 설치되어, 선생님들께서 이미 사용하고 계시는 <strong class="text-orange-600">Google Docs, Slides, YouTube</strong> 등 다양한 웹 도구와 완벽하게 연동됩니다.</p>
+            
+            <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-800 p-6 rounded-r-lg shadow-sm">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <i class="fa-solid fa-bullseye text-3xl text-orange-500"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-xl font-bold">Brisk의 핵심 목표</p>
+                        <p class="mt-1">교사 업무 부담 경감, 수업의 질 향상, 학생 학습 촉진을 통해 <strong class="text-2xl">주당 최대 10시간</strong>의 시간을 절약하는 것입니다!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="my-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-slate-800 border-b-4 border-teal-300 pb-3 mb-8">🛠️ 주요 기능</h2>
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-2xl font-semibold text-slate-700 mb-4">📝 콘텐츠 생성</h3>
+                    <p class="text-lg leading-relaxed mb-4">프레젠테이션, 퀴즈, 수업 계획서, 평가 기준표(루브릭) 등을 클릭 몇 번으로 간단하게 생성할 수 있습니다. 어떤 자료든 교육 자원으로 탈바꿈시켜 보세요.</p>
+                    <div class="bg-teal-50 p-4 rounded-lg border border-teal-200">
+                        <p class="font-semibold text-teal-800"><i class="fa-solid fa-lightbulb mr-2"></i>예시: YouTube 영상 링크 하나로 수업 지도안, 핵심 내용 퀴즈, 채점 기준표까지 즉시 생성!</p>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-slate-700 mb-4">💬 신속한 피드백</h3>
+                        <p class="text-lg leading-relaxed">학생들이 제출한 Google Docs 과제에 대해, 개인화된 맞춤형 피드백을 신속하게 작성해줍니다. 며칠이 걸릴 수도 있는 피드백 작업을 단 몇 분 안에 완료할 수 있습니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-slate-700 mb-4">📹 쓰기 과정 검사</h3>
+                        <p class="text-lg leading-relaxed">학생의 작문 과정을 마치 영상처럼 재생하여, 어떤 부분에서 시간이 오래 걸렸는지, 어떤 내용을 고쳤는지 등을 파악하여 정확한 지도가 가능합니다.</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-slate-700 mb-4">🌐 수준별 자료 제공 및 탐구 지원</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start p-4 bg-white rounded-lg shadow-sm">
+                            <span class="text-sky-500 text-xl mr-4 mt-1"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                            <div>
+                                <h4 class="font-bold text-lg text-sky-800">읽기 수준 변경 및 번역</h4>
+                                <p class="text-slate-600">온라인의 모든 텍스트를 학생의 읽기 수준에 맞춰 쉽게 바꾸거나, 50개 이상의 언어로 번역하여 다문화 학생 교육 및 외국어 자료 활용에 유용합니다.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start p-4 bg-white rounded-lg shadow-sm">
+                             <span class="text-sky-500 text-xl mr-4 mt-1"><i class="fa-solid fa-robot"></i></span>
+                            <div>
+                                <h4 class="font-bold text-lg text-sky-800">학생 친화적 AI</h4>
+                                <p class="text-slate-600">교사가 제어하는 안전한 환경 속에서, 학생들이 스스로 개념을 질문하고 탐구하며 자기주도적 학습 능력을 기를 수 있도록 돕습니다.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="benefits" class="my-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-slate-800 border-b-4 border-teal-300 pb-3 mb-8">🌟 Brisk의 핵심 이점</h2>
+            <p class="text-center text-lg mb-8">Brisk는 교사의 시간을 절약하고, 수업의 질을 높이며, 번아웃을 줄여줍니다.</p>
+            <div class="grid md:grid-cols-3 gap-6 text-center">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                    <i class="fa-solid fa-clock-rotate-left text-4xl text-orange-500 mb-3"></i>
+                    <h3 class="text-xl font-bold text-slate-800">시간 절약</h3>
+                    <p class="text-slate-600 mt-2">수업 준비, 자료 제작, 채점 시간을 획기적으로 단축합니다.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                    <i class="fa-solid fa-users-gear text-4xl text-teal-500 mb-3"></i>
+                    <h3 class="text-xl font-bold text-slate-800">차별화 교육</h3>
+                    <p class="text-slate-600 mt-2">모든 학생의 수준에 맞는 개별화된 학습 자료와 피드백을 쉽게 제공합니다.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                    <i class="fa-solid fa-heart-pulse text-4xl text-sky-500 mb-3"></i>
+                    <h3 class="text-xl font-bold text-slate-800">번아웃 감소</h3>
+                    <p class="text-slate-600 mt-2">단순 반복 업무를 자동화하여 교사의 직업 만족도를 높입니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="usage" class="my-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-slate-800 border-b-4 border-teal-300 pb-3 mb-8">📝 교과별 활용 사례</h2>
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-orange-400">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-orange-800">✍️ 국어 수업: 논설문 피드백</h3>
+                        <ul class="mt-4 space-y-3 text-slate-700">
+                            <li class="flex items-start"><span class="mr-3 text-orange-500">✅</span><strong>상황:</strong> 학생들이 Google Docs로 제출한 논설문 과제 채점</li>
+                            <li class="flex items-start"><span class="mr-3 text-orange-500">✅</span><strong>Brisk 활용:</strong> '피드백 제공' 기능으로 논리 구조, 표현에 대한 맞춤형 피드백 즉시 생성</li>
+                            <li class="flex items-start"><span class="mr-3 text-orange-500">✅</span><strong>결과:</strong> 채점 시간 80% 단축 및 학생 만족도 높은 상세 피드백 제공</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-teal-400">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-teal-800">🌍 사회 수업: 다문화 교육 자료</h3>
+                        <ul class="mt-4 space-y-3 text-slate-700">
+                            <li class="flex items-start"><span class="mr-3 text-teal-500">✅</span><strong>상황:</strong> 해외 문화 관련 영어 뉴스 기사를 활용한 수업</li>
+                            <li class="flex items-start"><span class="mr-3 text-teal-500">✅</span><strong>Brisk 활용:</strong> '읽기 수준 변경'으로 학생 수준에 맞는 한글 텍스트로 변환하고, '활동 부스트'로 퀴즈 생성</li>
+                            <li class="flex items-start"><span class="mr-3 text-teal-500">✅</span><strong>결과:</strong> 모든 학생이 장벽 없이 콘텐츠를 이해하고 수업에 적극적으로 참여</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden border-l-4 border-sky-400">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-sky-800">🔬 과학 수업: 실험 보고서 지도</h3>
+                        <ul class="mt-4 space-y-3 text-slate-700">
+                            <li class="flex items-start"><span class="mr-3 text-sky-500">✅</span><strong>상황:</strong> YouTube 실험 영상을 보고 보고서 작성하기</li>
+                            <li class="flex items-start"><span class="mr-3 text-sky-500">✅</span><strong>Brisk 활용:</strong> 영상으로 '수업 계획'과 '평가 루브릭'을 만들고, '학생 친화적 AI'로 자기주도적 탐구 지원</li>
+                            <li class="flex items-start"><span class="mr-3 text-sky-500">✅</span><strong>결과:</strong> 수업 준비 간소화 및 학생 자기주도 학습 능력 향상</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="security" class="my-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-slate-800 border-b-4 border-teal-300 pb-3 mb-8">🔒 개인정보 보호 및 데이터 보안</h2>
+            <div class="bg-rose-100 border-l-4 border-rose-500 text-rose-800 p-6 rounded-r-lg shadow-sm">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <i class="fa-solid fa-shield-halved text-4xl text-rose-500"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-xl font-bold">교사와 학생을 위한 안전한 AI</p>
+                        <p class="mt-2">Brisk는 Common Sense Privacy Rating에서 <strong class="text-2xl">93%</strong>라는 AI 도구 중 최고 수준의 등급을 받았습니다. COPPA, FERPA, GDPR 등 국내외 주요 개인정보보호법을 모두 준수하며, 개인 식별 정보를 요구하지 않아 안심하고 사용할 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="my-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-slate-800 border-b-4 border-teal-300 pb-3 mb-8">❓ 자주 묻는 질문 (FAQ)</h2>
+            <div class="space-y-4">
+                <details class="bg-white p-4 rounded-lg shadow-sm cursor-pointer group">
+                    <summary class="flex justify-between items-center font-semibold text-lg text-slate-800">
+                        Brisk Teaching은 유료인가요?
+                        <span class="text-teal-500">
+                            <i class="fa-solid fa-plus plus-icon transition-transform transform group-open:rotate-45"></i>
+                            <i class="fa-solid fa-minus minus-icon transition-transform transform"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-slate-600 leading-relaxed">
+                        기본적인 핵심 기능들은 무료로 제공됩니다. 더 많은 사용량이나 고급 기능(예: 학군 단위 관리 기능)을 원하시는 경우 유료 플랜을 구독할 수 있습니다. 개인 교사 수준에서는 무료 플랜으로도 충분히 강력한 기능들을 체험하실 수 있습니다.
+                    </div>
+                </details>
+
+                <details class="bg-white p-4 rounded-lg shadow-sm cursor-pointer group">
+                    <summary class="flex justify-between items-center font-semibold text-lg text-slate-800">
+                        학생들이 직접 사용해도 안전한가요?
+                        <span class="text-teal-500">
+                            <i class="fa-solid fa-plus plus-icon transition-transform transform group-open:rotate-45"></i>
+                            <i class="fa-solid fa-minus minus-icon transition-transform transform"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-slate-600 leading-relaxed">
+                        네, 매우 안전합니다. Brisk의 '학생 친화적 AI' 기능은 교사가 허용할 때만 활성화되며, 모든 상호작용은 교사의 통제 하에 이루어집니다. 또한 Brisk는 학생의 개인 식별 정보를 수집하거나 저장하지 않으며, 모든 데이터는 엄격한 보안 규정에 따라 처리됩니다.
+                    </div>
+                </details>
+                
+                <details class="bg-white p-4 rounded-lg shadow-sm cursor-pointer group">
+                    <summary class="flex justify-between items-center font-semibold text-lg text-slate-800">
+                        설치가 복잡하지는 않나요?
+                        <span class="text-teal-500">
+                            <i class="fa-solid fa-plus plus-icon transition-transform transform group-open:rotate-45"></i>
+                            <i class="fa-solid fa-minus minus-icon transition-transform transform"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-slate-600 leading-relaxed">
+                        전혀 복잡하지 않습니다. 크롬 웹 스토어 또는 MS 엣지 추가 기능 스토어에서 'Brisk Teaching'을 검색하고 '추가' 버튼만 누르면 설치가 끝납니다. 이후 구글 계정으로 로그인하면 바로 사용할 수 있어, 컴튜터에 익숙하지 않은 선생님들도 쉽게 시작할 수 있습니다.
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section id="conclusion" class="my-16 text-center bg-teal-600 text-white rounded-lg p-8 sm:p-12 shadow-2xl">
+            <h2 class="text-3xl font-bold mb-4">🎉 이제, 스마트하고 안전하게 교육하세요!</h2>
+            <p class="text-lg text-teal-100 mb-6">Brisk는 교사가 수업의 핵심에 집중하도록 돕는 혁신적인 AI 파트너입니다.</p>
+            <a href="https://www.briskteaching.com/" target="_blank" class="inline-block bg-white text-teal-600 font-bold py-3 px-8 rounded-full text-lg hover:bg-orange-100 transition-all transform hover:scale-105">
+                지금 바로 Brisk 시작하기 <i class="fa-solid fa-arrow-right ml-2"></i>
+            </a>
+        </section>
+    </main>
+    
+    <footer class="bg-slate-800 text-slate-400 py-6">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>&copy; 2024 Educational Content Visualization. All Rights Reserved.</p>
+            <p class="text-sm mt-1">이 페이지는 교육 연수 목적으로 제작되었습니다.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
